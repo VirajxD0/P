@@ -1,24 +1,33 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { Application } from "@splinetool/runtime";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+gsap.registerPlugin(ScrollTrigger);
 
-setupCounter(document.querySelector('#counter'))
+// Initialize Spline application
+const canvas = document.getElementById("canvas3d");
+const spline = new Application(canvas);
+spline.load("https://prod.spline.design/6uvptqZu3DvpoRQm/scene.splinecode");
+
+// Once the scene is loaded, proceed with the GSAP animation
+spline.on("load", () => {
+  // Assuming the object has a name like 'objectName', you can find it by name
+  const object = spline.findObjectByName("Rectangle 2");
+
+  if (object) {
+    // Create a timeline for the scroll animation
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#page2",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+      .to(object.position, {
+        x: -5, // Move the object to the left (you can adjust the values)
+        duration: 1,
+      });
+  }
+});

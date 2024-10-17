@@ -1,96 +1,462 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+body,
+html {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+/* ---- particles.js container ---- */
+#canvas3d {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 9999; /* Ensures it is layered on top of particles */
+  pointer-events: auto; /* This prevents canvas from blocking mouse interactions with particles */
+}
+/* Ensure the canvas container is correctly sized and positioned */
+.page {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  overflow: hidden;
+  padding: 0%;
+  padding-right: 0%;
+  margin: 0%;
+}
+
+h3 {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  left: 5%;
+  top: 1%;
+}
+h4 {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  left: 1%;
+  top: -9%;
+}
+/* Canvas styles */
+#canvas3ds {
+  position: absolute;
+  width: 50vw !important; /* Example width */
+  height: 100vh !important; /* Example height */
+  top: 50%; /* Center vertically */
+  left: 60%; /* Center horizontally */
+  transform: translate(-50%, -50%) scale(1.5); /* Center the canvas */
+  z-index: 999; /* Ensure it is layered on top of particles */
+  pointer-events: auto; /* Allows mouse interactions */
+  background-color: transparent; /* Semi-transparent red for visibility */
+}
+
+#particles-jss {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+} /* ---- stats.js ---- */
+#particles-js1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+} /* ---- stats.js ---- */
+
+#particles-js3 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 0;
+  padding: 0px;
+}
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.js-count-particles {
+  font-size: 1.1em;
+}
+#stats,
+.count-particles {
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: rgb(252, 39, 39);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-size: 90px;
+  left: 5%;
+  top: 10%;
+}
+p {
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  left: 5%;
+  top: 45%;
+  width: 20%;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.content {
+  position: relative;
+  z-index: 2; /* Higher than particles */
+  text-align: center;
+  margin-top: 50px; /* Adjust as needed */
+  color: white; /* Ensure text is visible */
+}
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 401;
+  font-style: normal;
+}
+.material-symbols-outlined {
+  color: rgb(246, 246, 246);
+  z-index: 100000;
+  position: relative;
+  top: 90%;
+  left: 5%%;
+  font-weight: 8000px;
+  font-family: "Material Symbols Outlined";
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: transparent; /* Semi-transparent background to blend with canvas */
+  padding: 10px 20px;
+  border-radius: 0 0 0 12px; /* Rounded corners at the bottom */
+  display: flex;
+  gap: 20px;
+  z-index: 10000000; /* Ensure it appears on top of the canvas */
+}
+
+.nav-link {
+  color: #dbd1d1;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 40px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2); /* Slight hover effect */
+}
+
+.btn {
+  display: block;
+  margin: 10px 10px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 99999;
+  border-radius: 12px;
+  height: 5vh;
+  left: -28%;
+  top: 32%;
+  font-size: 25px;
   text-align: center;
 }
+.btn1 {
+  padding: 15px 15px;
+}
+.an {
+  margin: 10px 10px;
+  padding: 15px 10px;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  position: relative;
+  z-index: 99999;
+
+  height: 5vh;
+  left: -28%;
+  top: 28%;
+  font-size: 25px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.lin {
+  margin: 10px 10px;
+  padding: 15px 10px;
+
+  position: relative;
+  z-index: 99999;
+
+  height: 5vh;
+  left: -30%;
+  top: 28%;
+  font-size: 25px;
 }
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0909;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out; /* Smooth transition for background */
+}
+
+/* Glowing border */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  /* Always visible */
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Hover simulates click effect */
+.btn:hover::after {
+  background: transparent; /* Make the background transparent on hover */
+}
+h6 {
+  padding-bottom: 0%;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  left: 1%;
+  z-index: 9999;
+  top: 5600px;
+  left: 20%;
+  font-size: 120px;
+}
+
+:root {
+  --cards: 4;
+  --cardHeight: 87vh;
+  --cardTopPadding: 1.9em;
+  --cardMargin: 4vw;
+}
+
+.container {
+  position: relative;
+  top: -70vh; /* Move the cards up, overlaying the particle section */
+  width: 90%;
+  margin: 0 auto;
+  z-index: 2;
+  padding: 0 auto;
+  padding-bottom: 0;
+}
+#cards {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+
+#card1 {
+  --index: 2;
+}
+#card2 {
+  --index: 3;
+}
+#card3 {
+  --index: 4;
+}
+#card4 {
+  --index: 5;
+  margin-bottom: 0%;
+  margin: 0%;
+  padding: 0%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
 }
 
 .card {
-  padding: 2em;
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+  padding-bottom: 0%;
+  margin-bottom: 0%;
 }
 
-.read-the-docs {
-  color: #888;
+#card1 .card-body {
+  background: rgb(0, 3, 36);
+  background: linear-gradient(
+    16deg,
+    rgba(0, 3, 36, 1) 62%,
+    rgba(107, 11, 196, 0.986453956582633) 100%
+  );
+}
+#card2 .card-body {
+  /* background-color: #7EC4CF; */
+  background-color: #0c0a09;
+}
+#card3 .card-body {
+  background-image: linear-gradient(180deg, red, yellow);
+}
+#card4 .card-body {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    23deg,
+    rgba(0, 0, 0, 1) 69%,
+    rgba(88, 19, 132, 1) 82%,
+    rgba(69, 5, 100, 1) 100%
+  );
+  margin-bottom: 0%;
+  margin: 0%;
+  padding: 0%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.card-body {
+  box-sizing: border-box;
+  padding: 0px;
+  border-radius: 50px;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+  height: var(--cardHeight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h2 {
+  font-size: 2.5em;
+}
+#particles-js2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+  background-attachment: fixed;
+}
+#Projects {
+  background: black;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+
+.bungee-spice-regular {
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.honk-uni {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "MORF" 15, "SHLN" 50;
+  font-size: 100px;
+  letter-spacing: 7px;
+}
+/* Hide scrollbar for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
