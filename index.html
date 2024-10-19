@@ -38,9 +38,19 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module">
+      import * as Spline from "https://cdn.jsdelivr.net/npm/@splinetool/runtime@latest";
+    </script>
   </head>
   <body>
     <canvas id="canvas3d"></canvas>
+    <script type="importmap">
+      {
+        "imports": {
+          "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.9.32/build/runtime.js"
+        }
+      }
+    </script>
     <nav class="navbar">
       <a href="#canvas3d" class="nav-link">Home</a>
       <a href="#page2" class="nav-link">Skills</a>
@@ -127,8 +137,21 @@
       <div class="circle"></div>
       <div class="circle"></div>
       <div class="circle"></div>
-
+      <script type="importmap">
+        {
+          "imports": {
+            "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.9.32/build/runtime.js"
+          }
+        }
+      </script>
       <canvas id="canvas3ds"></canvas>
+      <script type="importmap">
+        {
+          "imports": {
+            "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.9.32/build/runtime.js"
+          }
+        }
+      </script>
     </div>
 
     <div id="Projects">
@@ -281,6 +304,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script type="module">
+      import * as Spline from "https://cdn.jsdelivr.net/npm/@splinetool/runtime@latest";
+    </script>
+
     <script src="scroll.js"></script>
     <script type="module" src="main.js"></script>
     <script type="module" src="main2.js"></script>
