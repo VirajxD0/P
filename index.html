@@ -305,5 +305,20 @@
     <script src="particles2.js"></script>
     <script src="particles3.js"></script>
     <script src="script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.9.32/build/runtime.js"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { Application } from "@splinetool/runtime";
+
+      const canvas = document.getElementById("canvas3ds");
+      const app = new Application(canvas);
+      app.load("https://prod.spline.design/60bmf97LcGdPYIAR/scene.splinecode"); // Load your Spline scene here
+    </script>
   </body>
 </html>
