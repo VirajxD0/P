@@ -10,7 +10,7 @@ html {
   position: absolute;
 
   top: 0;
-  left: 4%;
+  left: 7%;
 
   z-index: 9999; /* Ensures it is layered on top of particles */
   pointer-events: auto; /* This prevents canvas from blocking mouse interactions with particles */
