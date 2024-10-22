@@ -1,11 +1,6 @@
 # Portfolio
 
-<<<<<<< HEAD
-
-=======
-
-> > > > > > > 628b9a158297acf75f9dbd8e130225a323369f70
-> > > > > > > This Portfolio project is a web application built using Vite, a fast and modern front-end build tool. Vite provides a lightning-fast development environment and optimizes the build for production
+This Portfolio project is a web application built using Vite, a fast and modern front-end build tool. Vite provides a lightning-fast development environment and optimizes the build for production
 
 ![Project Screenshot](1st.png)
 ![Project Screenshot](2nd.png)
