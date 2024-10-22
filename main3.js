@@ -9,7 +9,7 @@ document.getElementById("copyemail").addEventListener("click", function () {
       document.getElementById("copyemail").innerText = "Email copied!";
     },
     function (err) {
-      console.error("Failed to copy text: ", err);
+      console.error("Failed to copy textt: ", err);
     }
   );
 });

@@ -15,7 +15,7 @@ spline
     const keyboard = app.findObjectByName("keyboard");
 
     gsap.set(keyboard.scale, { x: 1, y: 800, z: 1 });
-    gsap.set(keyboard.position, { x: 110, y: 50 });
+    gsap.set(keyboard.position, { x: 111, y: 50 });
 
     let rotateKeyboard = gsap.to(keyboard.rotation, {
       y: Math.PI * 2 + keyboard.rotation.y,
